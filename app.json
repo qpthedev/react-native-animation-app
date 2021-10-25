@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "rn-language-app",
+    "slug": "rn-language-app",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "rn-language-app"
+}
