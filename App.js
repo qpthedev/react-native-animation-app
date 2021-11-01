@@ -43,6 +43,12 @@ export default function App() {
     PanResponder.create({
       // start listening on touch
       onStartShouldSetPanResponder: () => true,
+      onPanResponderGrant: () => {
+        POSITION.setOffset({
+          x: POSITION.x._value,
+          y: POSITION.y._value,
+        });
+      },
       onPanResponderMove: (_, { dx, dy }) => {
         POSITION.setValue({
           x: dx,
@@ -50,13 +56,7 @@ export default function App() {
         });
       },
       onPanResponderRelease: () => {
-        Animated.spring(POSITION, {
-          toValue: {
-            x: 0,
-            y: 0,
-          },
-          useNativeDriver: false,
-        }).start();
+        POSITION.flattenOffset();
       },
     })
   ).current;
